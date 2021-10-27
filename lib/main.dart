@@ -2,26 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:async';
 
 import 'main_splash_screen.dart';
 import 'p_view.dart';
 
-void main() async {
-  SharedPreferences pref = await SharedPreferences.getInstance();
-  Widget _screen;
-  if (pref.getBool('Y') == false || pref.getBool('Y') == null)
-    _screen = PView();
-  else {
-    pref.setBool('Y', false);
-    _screen = MainSplashScreen();
-  }
-  _screen = MainSplashScreen();
-
-  runApp(_screen);
-}
-
+void main() => runApp(MainSplashScreen());
 ThemeMode tm = ThemeMode.light;
 bool swVal = false;
 
